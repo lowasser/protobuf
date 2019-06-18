@@ -42,8 +42,10 @@ val myMessage = Message.newBuilder()
 ```
 
 What is a little surprising, however, is what we’re doing for repeated and map fields, so let’s explain that.  Instead of either
-exposing an unmodifiable collection view and a set of specific mutation methods like `addMyRepeatedField`, as the current Java API does
-creating a custom mutable collection wrapper, which runs into a few problems (code size, boxing, difficulty controlling the scope of mutability)
+
+ * exposing an unmodifiable collection view and a set of specific mutation methods like `addMyRepeatedField`, as the current Java API does
+  * creating a custom mutable collection wrapper, which runs into a few problems (code size, boxing, difficulty controlling the scope of mutability)
+  
 we’re taking a slightly different approach: providing an unmodifiable collection view and extension methods -- available only inside the DSL -- that modify the underlying builder.
 
 Here’s an API sketch:
